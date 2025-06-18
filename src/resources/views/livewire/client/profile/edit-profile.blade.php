@@ -45,9 +45,24 @@
                                     <input type="number" class="form-control" wire:model="profilePrice" value="0"
                                         placeholder>
                                     <div class="input-group-append">
-                                        <span class="input-group-text">Peso</span>
+                                        <span class="input-group-text">IDR</span>
                                     </div>
                                     @error('profilePrice')
+                                        <span class="text text-xs text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="text text-xs mb-0">Sell Price:</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" wire:model="profileSellPrice" value="0"
+                                        placeholder>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">IDR</span>
+                                    </div>
+                                    @error('profileSellPrice')
                                         <span class="text text-xs text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
