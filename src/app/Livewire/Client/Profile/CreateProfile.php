@@ -15,6 +15,7 @@ class CreateProfile extends Component
     public $profileName;
     public $profileDescription;
     public $profilePrice = 0;
+    public $profileSellPrice = 0;
     public $profileUptimeLimit = 0;
     public $profileValidity = 0;
     public $profileMaxDownload = 0;
@@ -27,6 +28,7 @@ class CreateProfile extends Component
             'profileName'           =>  'required|min:5|max:50',
             'profileDescription'    =>  'max:50',
             'profilePrice'          =>  'min:0|numeric',
+            'profileSellPrice'      =>  'min:0|numeric',
             'profileUptimeLimit'    =>  'min:0|numeric',
             'profileValidity'       =>  'min:0|numeric',
             'profileMaxDownload'    =>  'min:0|numeric',
@@ -41,6 +43,7 @@ class CreateProfile extends Component
             'name'          =>  $this->profileName,
             'description'   =>  $this->profileDescription,
             'price'         =>  $this->profilePrice,
+            'sell_price'    =>  $this->profileSellPrice,
             'uptime_limit'  =>  $this->profileUptimeLimit,
             'data_limit'    =>  $this->profileDataLimit,
             'max_download'  =>  $this->profileMaxDownload,

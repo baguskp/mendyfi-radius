@@ -58,6 +58,23 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
+                                <label class="text text-xs mb-0">Sell Price:</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" wire:model="profileSellPrice" value="0"
+                                        placeholder>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <li class="fas fa-money-bill-alt"></li>
+                                        </span>
+                                    </div>
+                                    @error('profileSellPrice')
+                                        <span class="text text-xs text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
                                 <label class="text text-xs mb-0">Uptime Limit:</label>
                                 <div class="input-group">
                                     <input type="number" class="form-control" wire:model="profileUptimeLimit"
