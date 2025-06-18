@@ -56,7 +56,7 @@ https://github.com/mendylivium/docker-ubuntu
 
 Clone this repository. Run the following command:
 ```
-git clone https://github.com/mendylivium/mendyfi-radius.git
+git clone https://github.com/baguskp/mendyfi-radius.git
 ```
 
 Move to the project directory:
