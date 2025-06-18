@@ -24,28 +24,25 @@ class VouchersInfo extends Controller
         $vouhcerId  =   request()->get('id');
 
         $vouchers = HotspotVouchers::query()
-        ->leftJoin('hotspot_profiles','hotspot_profiles.id','hotspot_vouchers.hotspot_profile_id')
-        ->leftJoin('resellers','resellers.id','hotspot_vouchers.reseller_id')
-        ->select(
-            '*',
-            'hotspot_vouchers.id as prof_id',
-            'hotspot_profiles.name as prof_name',
-            'hotspot_profiles.description as prof_desc',
-            'hotspot_profiles.price as prof_price',
-            'hotspot_profiles.uptime_limit as prof_time_limit',
-            'hotspot_profiles.data_limit as prof_data_limit',
-            'hotspot_profiles.max_download as prof_max_download',
-            'hotspot_profiles.max_upload as prof_max_upload',
-            'hotspot_profiles.validity as prof_validity',
-            'resellers.name as reseller_name',
-            'resellers.id as reseller_id',
-        )
-        ->where('hotspot_vouchers.used_date',null);
-
-
-        if($batchCode != null) {
-            $vouchers = $vouchers->where('hotspot_vouchers.batch_code',$batchCode);
-        }
+            ->leftJoin('hotspot_profiles as hp', 'hp.id', '=', 'hotspot_vouchers.hotspot_profile_id')
+            ->leftJoin('resellers as r', 'r.id', '=', 'hotspot_vouchers.reseller_id')
+            ->select([
+                'hotspot_vouchers.*',
+                'hp.name as prof_name',
+                'hp.description as prof_desc',
+                'hp.price as prof_price',
+                'hp.uptime_limit as prof_time_limit',
+                'hp.data_limit as prof_data_limit',
+                'hp.max_download as prof_max_download',
+                'hp.max_upload as prof_max_upload',
+                'hp.validity as prof_validity',
+                'r.name as reseller_name',
+                'r.id as reseller_id'
+            ])
+            ->whereNull('hotspot_vouchers.used_date')
+            ->when($batchCode, function($query) use ($batchCode) {
+                return $query->where('hotspot_vouchers.batch_code', $batchCode);
+            });
 
         
         $vouchers = $vouchers->get();
