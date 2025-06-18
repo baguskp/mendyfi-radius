@@ -123,6 +123,7 @@ class Generated extends Component
             'generation_date',
             'name',
             'price',
+            'sell_price',
             'batch_code',
             'reseller_name'
         )
