@@ -51,6 +51,7 @@ class Active extends Component
             'hotspot_vouchers.*',
             'hotspot_profiles.name as profile_name',
             'hotspot_profiles.price',
+            'hotspot_profiles.sell_price',
             'hotspot_profiles.uptime_limit',
             'hotspot_profiles.data_limit',
             'hotspot_profiles.max_download',

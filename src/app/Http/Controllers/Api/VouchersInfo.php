@@ -58,7 +58,7 @@ class VouchersInfo extends Controller
                 'password'              =>  $voucher->password,
                 'description'           =>  $voucher->prof_desc,
                 'profile'               =>  $voucher->prof_name,
-                'price'                 =>  number_format($voucher->price,2),
+                'price'                 =>  number_format($voucher->prof_price,2),
                 'time_limit'            =>  $this->convertSeconds($voucher->prof_time_limit),
                 'data_limit'            =>  $voucher->prof_data_limit ? "{$this->convertBytes($voucher->prof_data_limit)}" : "Unlimited",
                 'speed_max_download'    =>  $voucher->prof_max_download ? "{$this->convertBytes($voucher->prof_max_download)}ps" : "Unlimited",
