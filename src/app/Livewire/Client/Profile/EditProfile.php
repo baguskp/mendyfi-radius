@@ -175,6 +175,7 @@ class EditProfile extends Component
         $this->profileName          =   $this->profile->name;
         $this->profileDescription   =   $this->profile->description;
         $this->profilePrice         =   $this->profile->price;
+        $this->profileSellPrice     =   $this->profile->sell_price;
         $this->profileUptimeLimit   =   $this->profile->uptime_limit;
         $this->profileDataLimit     =   $this->profile->data_limit;
         $this->profileMaxDownload   =   $this->profile->max_download;
